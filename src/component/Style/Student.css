@@ -1,0 +1,160 @@
+.body{
+    /* background-image: linear-gradient(to bottom right, red, yellow); */
+    padding: 1%;
+}
+.s-table{
+    margin-top: 2%;
+    /* background-color: gray; */
+}
+.d-name{
+    padding: 5px;
+    border: 2px solid black;
+    font-weight: 900;
+}
+
+.top-table{
+    
+    text-align: center;
+}
+.s-image{
+    margin: auto;
+   
+}
+
+.mean-heading{
+    font-size: 25px;
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+.s-left, .s-right{
+    margin-top: 4%;
+    /* display: block; */
+}
+/* Table Styling */
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #000000;
+    text-align: left;
+    padding: 8px;
+    
+  }
+  
+  tr:nth-child(even) {
+    /* background-color: #dddddd; */
+  }
+
+.t-body{
+    margin-top: 0.5%;
+}
+.rectangle{
+    width: 20px;
+    height: 20px;
+}
+
+.s-size{
+    font-size: small;
+}
+
+.labels{
+    font-size: 1rem;
+}
+.s-border{
+    border-radius: 50%;
+}
+
+.dash{
+    width: 80%;
+    height: 50%;
+    border-bottom: 2px solid black;
+    border-style: dotted;
+    margin-left: 5px;
+}
+
+.d-vertical{
+ transform: rotate(180deg);   
+}
+
+.oriented{
+    margin: 0;
+    writing-mode: vertical-lr;
+    text-align: center;
+    line-height: .9;
+
+}
+/* middle table Css */
+.centre{
+    display: flex;
+    justify-content: center;
+}
+.borde{
+    width: 50%;
+    margin-top: 2px;
+    border:  5px solid black;
+    padding: auto;
+    margin-bottom: 2px;
+}
+
+/* Button Table CSSS */
+
+.rect{
+    width: 50px;
+    height: 50px;
+}
+
+
+/* object scrolling */
+.scroll-bg{
+    width: 100px;
+    margin: 10% auto;
+    padding: 30px;
+
+}
+
+.scrol-div{
+    /* width: 100px; */
+    height: 550px;
+    overflow: hidden;
+    overflow-y: scroll;
+
+}
+
+.scrol-s-form{
+    width: 550px;
+    height: 520px;
+    overflow: hidden;
+    overflow-y: scroll;
+
+}
+
+/* input fields */
+
+input{
+    text-align: center;
+}
+
+.left-aligment{
+    text-align: left;
+}
+
+.student-heading{
+    font-weight: bolder;
+    font-size: 2rem;
+    color: rgb(11, 132, 224);
+    text-decoration: underline;
+    margin-top: 15px;
+}
+
+.image-height{
+    height: 150px;
+}
+/* student search bar */
+.search-icon-size{
+    size: 150px;
+}

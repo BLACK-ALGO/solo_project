@@ -1,3 +1,46 @@
+*{
+  
+}
+
+.top-bar{
+  width: 100wh;
+  height: 10%;
+  background-color: #6200EA;
+  margin-bottom: 2%;
+  border-radius: 5px;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  
+  
+
+  
+}
+.top-head{
+  width: 35wh;
+}
+
+.bg-img{
+  /* background-image: url('./component/photos/school-logo.png'); */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.imgs{
+  /* border-radius: ; */
+  width: 15%;
+  border-radius: 15%;
+  margin-top: 5px;
+  margin-left: 55%;
+  
+
+}
+
+.wid{
+  width: 100%;
+}
+
 .App {
   text-align: center;
 }

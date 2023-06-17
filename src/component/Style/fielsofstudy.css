@@ -1,0 +1,37 @@
+.r-image{
+   width: 300px;
+}
+
+.r-text-align{
+    text-align: center;
+}
+
+.r-border-botom{
+    border-bottom: 5px solid black;
+    padding-bottom: 8px;
+}
+
+.r-text-middle{
+    text-align: start;
+}
+.r-part-2{
+    width: 100%;
+}
+
+.r-txt-bold{
+    margin-top: 1%;
+    font-weight: bolder;
+    text-decoration: underline;
+}
+/* static div section */
+.w-table{
+    width: 40%;
+}
+
+.txt-end{
+    text-align: end;
+}
+
+.t-font-size{
+    font-size: 13px;
+}

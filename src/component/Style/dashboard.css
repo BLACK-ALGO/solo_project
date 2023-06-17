@@ -1,0 +1,26 @@
+.body{
+    /* background-color: ; */
+
+}
+
+.container{
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bolder;
+}
+.zone{
+    cursor: pointer;
+    text-align: center;
+    border-radius: 4px;
+    border: 2px solid #bbb;
+    transition: all 0.3 linear;
+    height: 200px;
+   
+}
+.zone:hover{
+    transition: all 0.5s ;
+    transform:scale(1.1);
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 2px 5px, inset rgba(0, 0, 0, 0.15) 0px 5px 25px;
+}

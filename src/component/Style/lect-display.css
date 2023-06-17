@@ -1,0 +1,24 @@
+.lec_name{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 5%;
+}
+.outer_box{
+    border: 2px solid black;
+    border-radius: 5px;
+    
+}
+
+.lec_details{
+    padding: 5%;
+}
+
+.grid_display{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+    grid-gap: 1%;
+}
+.lect_img_prview{
+    margin-top: 3%;
+    width: 25%;
+}
+
