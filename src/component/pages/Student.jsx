@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import {StudentReg} from '../modals/StudentReg'
 import { StudentSearch } from "../modals/StudentSearch";
+import ReactToPrint from 'react-to-print';
+// import { ComponentToPrint } from '.';
 
 export class Student extends Component{
     constructor(){
@@ -9,8 +11,16 @@ export class Student extends Component{
             modal : false,
             searchModal: false,
             // setModal : false
-        }
+            student:[]
+        };
+        this.handlePrint = this.handlePrint.bind(this);
+
     }   
+
+    handlePrint() {
+        this.componentRef.onPrint();
+      }
+    
 
     toggleSearch = () =>{
         this.setState({
@@ -56,7 +66,10 @@ export class Student extends Component{
                 <div className="scrol-div">
 
                 {/* table start */}
-                <div className="t-font-size">
+                
+                <div className="t-font-size" ref={el => (this.componentRef = el)}>
+                    <p>table stat</p>
+                    
                 <div className="s-table">
                     <div className="flex justify-between m-auto">
                         <div className="s-left">
@@ -203,9 +216,18 @@ export class Student extends Component{
                     </table>
                     
                 </div>
-                <button type="submit" className="mt-5 bg-blue-500  text-white font-bold py-2 px-4 rounded-full">Print List</button>
+                
+       
+
+                
                 </div>
                 {/* end of table */}
+                <ReactToPrint
+                    content={() => this.componentRef}
+                    trigger={() => <button onClick={this.handlePrint} type="submit" className="mt-5 bg-blue-500  text-white font-bold py-2 px-4 rounded-full">Print List</button>}
+                 />
+            
+                
                 </div>
             </div>
         );

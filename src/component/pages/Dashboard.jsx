@@ -17,82 +17,70 @@ export class Dashboard extends Component {
               {
                 name: "series-1",
                 data: [30, 40, 45, 50, 49, 60, 70, 91]
+              },
+              {
+                name: "series-2",
+                data: [25, 40, 35, 50, 90, 15, 10, 100]
+              },
+              {
+                name: "series-2",
+                data: [25, 40, 55, 50, 70, 75, 10, 0]
               }
             ]
           };
     }
     render (){
         return(
-            <div className="body">
-                <div className="container scrol-div">
-                    
+            <div >
                 <div className="">
-                    <Chart
-                options={this.state.options}
-                series={this.state.series}
-                type="bar"
-                width="400"
-                    />
-                </div>
+                    <div className="scrol-dash container">
+                        <div className="">
+                            <Chart
+                        options={this.state.options}
+                        series={this.state.series}
+                        type="bar"
+                        width="400"
+                            />
+                        </div>
                 
 
+                    
+
                     <div className="">
-                            <div className="mixed-chart">
+                            <div className="">
                                 <Chart
                             options={this.state.options}
                             series={this.state.series}
-                            type="bar"
+                            type="radar"
                             width="400"
                                 />
                             </div>
                     </div>
 
                     <div className="">
-                            <div className="mixed-chart">
+                            <div className="">
                                 <Chart
                             options={this.state.options}
                             series={this.state.series}
-                            type="bar"
-                            width="400"
-                                />
-                            </div>
-                    </div>
-
-                    <div className="">
-                            <div className="mixed-chart">
-                                <Chart
-                            options={this.state.options}
-                            series={this.state.series}
-                            type="bar"
-                            width="400"
-                                />
-                            </div>
-                    </div>
-
-                    <div className="">
-                            <div className="mixed-chart">
-                                <Chart
-                            options={this.state.options}
-                            series={this.state.series}
-                            type="bar"
+                            type="area"
                             width="400"
                                 />
                             </div>
                     </div>
 
                     <div className=" -">
-                            <div className="mixed-chart">
+                            <div className="">
                                 <Chart
                             options={this.state.options}
                             series={this.state.series}
-                            type="bar"
+                            type="column"
                             width="400"
                                 />
                             </div>
                     </div>
 
                     <div className="z">
-                            <div className="mixed-chart">
+                            <div className="">
                                 <Chart
                             options={this.state.options}
                             series={this.state.series}
@@ -103,7 +91,7 @@ export class Dashboard extends Component {
                     </div>
                    
                     <div className="">
-                            <div className="mixed-chart">
+                            <div className="">
                                 <Chart
                             options={this.state.options}
                             series={this.state.series}
@@ -112,7 +100,7 @@ export class Dashboard extends Component {
                                 />
                             </div>
                     </div>
-                    
+                    </div>
                 </div>
             </div>
         );

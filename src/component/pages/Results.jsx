@@ -1,6 +1,19 @@
 import React, { Component } from "react";
+import ReactToPrint from 'react-to-print';
+
 
 export class Results extends Component{
+    constructor(props){
+        super(props);
+        this.state={
+            resiltSlip:[]
+        };
+        this.handlePrint = this.handlePrint.bind(this);
+    }
+
+    handlePrint() {
+        this.componentRef.onPrint();
+      }
     render(){
         return(
             <div className="">
@@ -16,7 +29,7 @@ export class Results extends Component{
                 </div>
                 <div className="scrol-div">
                     {/* Table start for results */}
-                    <div className="t-font-size">
+                    <div className="t-font-size" ref={el => (this.componentRef = el)}>
                         <div className="s-table ">
                             {/* head of form */}
                         <div className="flex justify-around r-text-align r-border-botom">
@@ -95,7 +108,7 @@ export class Results extends Component{
                         </div>
                         </div>
                         {/* part 2 end */}
-                        <h1 className="r-txt-bold">RESULTS AT THE END OF THE NORMAL SESSION</h1>
+                        <h1 className="r-txt-bold center">RESULTS AT THE END OF THE NORMAL SESSION</h1>
                         <div className="flex justify-center mt-5">
                         <div className="w-table">
                             <table className="w-76">
@@ -166,6 +179,10 @@ export class Results extends Component{
 
                         </div>
                     </div>
+                    <ReactToPrint
+                    content={() => this.componentRef}
+                    trigger={() => <button onClick={this.handlePrint} type="submit" className="mt-5 bg-blue-500  text-white font-bold py-2 px-4 rounded-full">Print List</button>}
+                 />
                 </div>
                 {/* end scroll */}
             </div>
