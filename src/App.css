@@ -79,3 +79,47 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* printing styling */
+@media print {
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 12pt;
+
+  }
+  @page {
+    margin: 0.2cm;
+    size:A4 landcsape;
+  }
+
+  th, td {
+    padding: 6px;
+    border: 1px solid black;
+    text-align: left;
+  }
+
+ 
+  /* Hide unnecessary elements */
+  button {
+    display: none;
+  }
+
+  /* Remove shadows */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Remove backgrounds and borders */
+  /* table, th, td {
+    background-color: transparent !important;
+    border: none !important;
+  } */
+
+  /* Avoid page breaks inside table cells */
+  td, th {
+    page-break-inside: avoid;
+  }
+}
