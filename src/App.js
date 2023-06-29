@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import './component/Style/Student.css'
 import './component/Style/modal.css';
@@ -8,6 +7,7 @@ import './component/Style/form_head.css';
 import './component/Style/dashboard.css';
 import './component/Style/color-bg.css';
 import './component/Style/lect-display.css'
+import './component/Style/btn.css'
 import Home from './component/Home';
 import { Component } from 'react';
 import { LandingPage } from './component/LandingPage';

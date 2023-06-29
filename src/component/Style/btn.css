@@ -1,0 +1,17 @@
+.edit_btn{
+    background-color: darkturquoise;
+    padding: 10px;
+    border-radius: 3px;
+    margin-right: 5%;
+    color: wheat;
+    font-weight: bold;
+}
+
+.delete_btn{
+    background-color: brown;
+    padding: 10px;
+    border-radius: 3px;
+    margin-right: 5%;
+    color: wheat;
+    font-weight: bold;
+}

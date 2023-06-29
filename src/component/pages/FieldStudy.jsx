@@ -26,6 +26,15 @@ export class FieldStudy extends Component{
         .then((data) =>this.setState({fields: data}))
         // console.log(this.state.fields[0]);
     }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.fields !== this.state.fields) {
+            fetch('http://localhost:3000/getfield')
+            .then(response => response.json())
+            .then((data) =>this.setState({fields: data}))
+        }
+      }
+
     render(){
         const {fields} = this.state;
         return(
@@ -85,7 +94,11 @@ export class FieldStudy extends Component{
 
                 </td>
                 <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    <a href="google.com" class="font-medium text-blue-600 dark:text-blue-500 hover:underline
+                    edit_btn
+                    
+                    ">Edit</a>
+                        <a href="google.com" class="font-medium text-blue-600 dark:text-blue-500 hover:underline delete_btn">Delete</a>
                 </td>
             </tr>
             )}

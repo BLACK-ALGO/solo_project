@@ -23,6 +23,14 @@ export class Speciality extends Component{
         .then((data) => this.setState({Specialities: data}))
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.Specialities !== this.state.Specialities) {
+            fetch('http://localhost:3000/getspacialty')
+            .then(response => response.json())
+            .then((data) => this.setState({Specialities: data}))
+        }
+      }
+
 
     render(){
         const {Specialities} = this.state;
@@ -82,8 +90,12 @@ export class Speciality extends Component{
                 {specialty.speciatyDescription}                 
                 </td>
                 <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
+                    <a href="google.com" class="font-medium text-blue-600 dark:text-blue-500 hover:underline
+                    edit_btn
+                    
+                    ">Edit</a>
+                        <a href="google.com" class="font-medium text-blue-600 dark:text-blue-500 hover:underline delete_btn">Delete</a>
+            </td>
             </tr>
             )}
         </tbody>

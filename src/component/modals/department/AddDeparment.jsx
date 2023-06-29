@@ -11,23 +11,26 @@ export class AddDepartment extends Component{
     }
 
     OnSaveLevel = () =>{
-        console.log("the department name"+ this.state.department_name + "     " + "The description " + this.state.department_description);
+        // console.log("the department name"+ this.state.department_name + "     " + "The description " + this.state.department_description);
         fetch('http://localhost:3000/addlevel',{
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                levename: this.state.level_name,
+                levelname: this.state.level_name,
                 leveldescription: this.state.level_description
             })
 
         })
+        .then((response) =>{
+            console.log(response.statusText);
+        })
     }
     
     OnLevelName = (event) =>{
-        this.setState({department_name: event.target.value});
+        this.setState({level_name: event.target.value});
     }
     OnLevelDescription = (event) =>{
-        this.setState({department_description: event.target.value});
+        this.setState({level_description: event.target.value});
     }
 
 
@@ -75,7 +78,7 @@ export class AddDepartment extends Component{
                     </div>
                     <button 
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
-                    onClick={this.OnSaveDeparment}
+                    onClick={this.OnSaveLevel}
                     >Save</button>
 
                     {/* End start */}

@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component } from "react";
 import { AddSchool } from "../modals/school/AddSchool";
 
 export class School extends Component{
@@ -31,17 +31,15 @@ export class School extends Component{
         .then( response => response.json())
         .then( (data) => this.setState({schools: data}) )
         console.log(this.state.schools[0]);
-        
-        // try {
-        //    const response = await fetch('http://localhost:3000/getschool');
-        //     const data = await response.json();
-        //     console.log(data);
-        //     this.setState({schools : data})
-            
-        // } catch (error) {
-        //     console.log(error);
-        // }
     }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.schools !== this.state.schools) {
+            fetch('http://localhost:3000/getschool')
+            .then( response => response.json())
+            .then( (data) => this.setState({schools: data}) )
+        }
+      }
 
     
 
@@ -99,8 +97,12 @@ export class School extends Component{
                                                 </td>
                                                 
                                                 <td class="px-6 py-4 text-right">
-                                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                                </td>
+                                                    <a href="google.com" class="font-medium text-blue-600 dark:text-blue-500 hover:underline
+                                                    edit_btn
+                                                    
+                                                    ">Edit</a>
+                                                     <a href="google.com" class="font-medium text-blue-600 dark:text-blue-500 hover:underline delete_btn">Delete</a>
+                                                 </td>
                                             </tr>
                                             )}
                                             

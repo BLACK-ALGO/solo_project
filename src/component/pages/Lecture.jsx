@@ -18,7 +18,13 @@ export class Lecture extends Component{
         .then((data) => this.setState({lectures: data}))
     }
 
-    
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.lectures !== this.state.lectures) {
+            fetch('http://localhost:3000/getlecture')
+            .then(response => response.json())
+            .then((data) => this.setState({lectures: data}))
+        }
+      }
 
     toggleSearch = () =>{
         this.setState({

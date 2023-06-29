@@ -9,7 +9,8 @@ export class AddCourse extends Component{
         course_credit: "",
         course_speciality: "",
         course_level: "",
-        specialties: []
+        specialties: [],
+        levels: []
     
       }
     }
@@ -55,11 +56,17 @@ export class AddCourse extends Component{
     componentDidMount(){
       fetch('http://localhost:3000/getspacialty')
       .then(response => response.json())
-      .then((data) => this.setState({specialties: data}))
-  }
+      .then((data) => this.setState({specialties: data}));
+
+      fetch('http://localhost:3000/getlevel')
+      .then(response => response.json())
+      .then((data) => this.setState({levels : data}))
+    }
+
+
 
     render(){
-      const {specialties} = this.state;
+      const {specialties, levels} = this.state;
         return(
             <div>
                 <div className="modal mar">
@@ -115,7 +122,6 @@ export class AddCourse extends Component{
                                         { specialties.map( specialty =>
                                           <option >{specialty.specialtyName}</option>
                                         )}
-                                          {/* <option >hName</option>       */}
                                         </select>  
                                        </div>
                                 </div>
@@ -123,13 +129,10 @@ export class AddCourse extends Component{
                                 <div className="col-span-full">
                                       <label for="course-level" className="block text-sm font-medium leading-6 left-aligment text-gray-900">Course Level</label>
                                       <div className="col-span-full">
-                                      <select  onChange={this.OnCourseLevel} id="country" name="country" autoComplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-                                        {/* {fields.map( field =>
-                                          <option >{field.fieldName}</option>
-                                        )} */}
-                                          <option >hName</option>
-
-                                          
+                                      <select  onChange={this.OnCourseLevel} id="course_level" name="course_level" autoComplete="course_level" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                                        {levels.map( level =>
+                                          <option >{level.levelName}</option>
+                                        )}
                                         </select>
                                       </div>
                                 </div>

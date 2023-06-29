@@ -73,7 +73,7 @@ export class Dashboard extends Component {
                                 <Chart
                             options={this.state.options}
                             series={this.state.series}
-                            type="column"
+                            type="radar"
                             width="400"
                                 />
                             </div>

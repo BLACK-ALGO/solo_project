@@ -91,11 +91,12 @@ const Home = ({onRouteChange}) =>{
                     </div>
 
                     <div className="top-head">
-                    <img src={require('./photos/profile.jpg')} className="imgs"/>
+                    <img src={require('./photos/profile.jpg')} alt="no profile" className="imgs"/>
                     </div>
                 </div>
               <div className="">
                 <Routes>
+                    <Route path="/" element={<Dashboard />}/>
                     <Route path="/DashBoard" element={<Dashboard />}/>
                     <Route path="/Course" element={<Course />}/>
                     <Route path="/Student" element={<Student />}/>

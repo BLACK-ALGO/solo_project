@@ -77,7 +77,7 @@ export class Student extends Component{
                             <p>Level : <span>HND1</span></p>
                         </div>
                         <div className="top-table">
-                            <img src={require('../photos/school-logo.png')} className="s-image"/>
+                            <img src={require('../photos/school-logo.png')} alt="no logo" className="s-image"/>
                     <h2 className="text-center mean-heading">EVALUATION LIST</h2>
 
                         </div>

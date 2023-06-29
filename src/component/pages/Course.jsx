@@ -35,6 +35,13 @@ export class Course extends Component{
         .then(response => response.json())
         .then( (data) => this.setState({courses: data}))
     }
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.courses !== this.state.courses) {
+            fetch('http://localhost:3000/getcourse')
+            .then(response => response.json())
+            .then( (data) => this.setState({courses: data}))
+        }
+      }
 
     
 
@@ -86,6 +93,7 @@ export class Course extends Component{
                                                 <th scope="col" class="px-6 py-3">
                                                     Course Level
                                                 </th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody >
@@ -107,6 +115,14 @@ export class Course extends Component{
                                                 <td class="px-6 py-4">
                                                     {course.courseLevel}
                                                 </td>
+
+                                                <td class="px-6 py-4 text-right">
+                                                    <a href="google.com" class="font-medium text-blue-600 dark:text-blue-500 hover:underline
+                                                    edit_btn
+                                                    
+                                                    ">Edit</a>
+                                                     <a href="google.com" class="font-medium text-blue-600 dark:text-blue-500 hover:underline delete_btn">Delete</a>
+                                                 </td>
                                                                                                 
                                             </tr>
                                         )}

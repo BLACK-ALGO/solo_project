@@ -45,7 +45,7 @@ export class Results extends Component{
 
                         </div>
                         <div className="">
-                            <img src={require('../photos/school-logo.png')} className="r-image" />
+                            <img src={require('../photos/school-logo.png')} alt="no logo" className="r-image" />
 
                         </div>
                         <div className="s-right r-text-align">

@@ -24,10 +24,18 @@ export class Department extends Component{
     }
 
     componentDidMount(){
-        fetch('http://localhost:3000/getleevl')
+        fetch('http://localhost:3000/getlevel')
         .then(response => response.json())
         .then((data) => this.setState({levels : data}))
     }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.levels !== this.state.levels) {
+            fetch('http://localhost:3000/getlevel')
+            .then(response => response.json())
+            .then((data) => this.setState({levels : data}))
+        }
+      }
 
     render(){
         const {levels} = this.state;
@@ -65,6 +73,7 @@ export class Department extends Component{
                                                 <th scope="col" class="px-6 py-3">
                                                     Description
                                                 </th>
+                                                <th></th>
                                                 
                                             </tr>                                                
 
@@ -83,6 +92,13 @@ export class Department extends Component{
                                                 <th scope="col" class="px-6 py-3">
                                                     {level.levelDescription}                                                    
                                                 </th>
+                                                <td class="px-6 py-4 text-right">
+                                                    <a href="google.com" class="font-medium text-blue-600 dark:text-blue-500 hover:underline
+                                                    edit_btn
+                                                    
+                                                    ">Edit</a>
+                                                     <a href="google.com" class="font-medium text-blue-600 dark:text-blue-500 hover:underline delete_btn">Delete</a>
+                                                 </td>
                                                 
                                             </tr>
                                                 ))}
