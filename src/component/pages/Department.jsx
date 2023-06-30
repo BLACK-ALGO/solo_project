@@ -23,6 +23,21 @@ export class Department extends Component{
         })
     }
 
+    deleteLevel = async (levelid) =>{
+        console.log(levelid);
+        try {
+            console.log('inside the try');
+            await fetch(`http://localhost:3000/deletelevel/${levelid}`,{
+                method: 'DELETE',
+            });  
+            console.log('enf try');         
+        } catch (error) {
+            console.log('inside the catch');
+            console.log(error)
+        }
+    
+    }
+
     componentDidMount(){
         fetch('http://localhost:3000/getlevel')
         .then(response => response.json())
@@ -37,6 +52,7 @@ export class Department extends Component{
         }
       }
 
+      
     render(){
         const {levels} = this.state;
         return(
@@ -93,11 +109,12 @@ export class Department extends Component{
                                                     {level.levelDescription}                                                    
                                                 </th>
                                                 <td class="px-6 py-4 text-right">
-                                                    <a href="google.com" class="font-medium text-blue-600 dark:text-blue-500 hover:underline
+                                                    <button href="google.com" class="font-medium text-blue-600 dark:text-blue-500 hover:underline
                                                     edit_btn
                                                     
-                                                    ">Edit</a>
-                                                     <a href="google.com" class="font-medium text-blue-600 dark:text-blue-500 hover:underline delete_btn">Delete</a>
+                                                    ">Edit</button>
+                                                     <button onClick={() => this.deleteLevel(level.levelId)} class="font-medium text-blue-600 dark:text-blue-500 hover:underline delete_btn"
+                                                     >Delete</button>
                                                  </td>
                                                 
                                             </tr>
