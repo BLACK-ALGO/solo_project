@@ -102,7 +102,7 @@ export class AddSpecialty extends Component{
                                         {fields.map( field =>
                                           <option >{field.fieldName}</option>
                                         )}
-                                          {/* <option >hName</option> */}
+                                          
 
                                           
                                         </select>

@@ -32,6 +32,7 @@ export class AddCourse extends Component{
     }
 
     OnSaveCourse =()=>{
+      console.log(this.state.course_level + this.state.course_speciality);
       fetch('http://localhost:3000/addcourse',{
         method: 'post',
         headers: {'Content-Type' :'application/json' },
@@ -119,6 +120,7 @@ export class AddCourse extends Component{
                                       <label for="course-speciality" className="block text-sm font-medium left-aligment leading-6 text-gray-900">Course Specialty</label>
                                       <div className="mt-2">
                                       <select  onChange={this.OnCourseSpecialty} id="country" name="country" autoComplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                                        <option>Select the Speciality</option>
                                         { specialties.map( specialty =>
                                           <option >{specialty.specialtyName}</option>
                                         )}
@@ -130,6 +132,7 @@ export class AddCourse extends Component{
                                       <label for="course-level" className="block text-sm font-medium leading-6 left-aligment text-gray-900">Course Level</label>
                                       <div className="col-span-full">
                                       <select  onChange={this.OnCourseLevel} id="course_level" name="course_level" autoComplete="course_level" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                                      <option>Select the Course</option>                                        
                                         {levels.map( level =>
                                           <option >{level.levelName}</option>
                                         )}

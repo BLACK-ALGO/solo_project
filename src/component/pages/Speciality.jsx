@@ -17,6 +17,21 @@ export class Speciality extends Component{
         })
     }
 
+    deleteSpacialty = async (spacialtyname) =>{
+        console.log(spacialtyname);
+        try {
+            console.log('inside the try');
+            await fetch(`http://localhost:3000/deletespacialty/${spacialtyname}`,{
+                method: 'DELETE',
+            });  
+            console.log('enf try');         
+        } catch (error) {
+            console.log('inside the catch');
+            console.log(error)
+        }
+    
+    }
+
     componentDidMount(){
         fetch('http://localhost:3000/getspacialty')
         .then(response => response.json())
@@ -90,11 +105,12 @@ export class Speciality extends Component{
                 {specialty.speciatyDescription}                 
                 </td>
                 <td class="px-6 py-4 text-right">
-                    <a href="google.com" class="font-medium text-blue-600 dark:text-blue-500 hover:underline
+                    <button  class="font-medium text-blue-600 dark:text-blue-500 hover:underline
                     edit_btn
                     
-                    ">Edit</a>
-                        <a href="google.com" class="font-medium text-blue-600 dark:text-blue-500 hover:underline delete_btn">Delete</a>
+                    ">Edit</button>
+                        <button onClick={() => {this.deleteSpacialty(specialty.specialtyName)}} class="font-medium text-blue-600 dark:text-blue-500 hover:underline delete_btn"
+                        >Delete</button>
             </td>
             </tr>
             )}

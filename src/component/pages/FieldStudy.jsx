@@ -20,6 +20,18 @@ export class FieldStudy extends Component{
         })
     }
 
+    deleteField = async (fieldname) =>{
+        console.log(fieldname);
+        try {
+            await fetch(`http://localhost:3000/deletefield/${fieldname}`,{
+                method: 'DELETE'
+            })
+        } catch (error) {
+            console.log({error, msg:'Unable to delete'});
+        }
+
+    }
+
     componentDidMount(){
         fetch('http://localhost:3000/getfield')
         .then(response => response.json())
@@ -93,12 +105,12 @@ export class FieldStudy extends Component{
                    {field.fieldDescription}
 
                 </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="google.com" class="font-medium text-blue-600 dark:text-blue-500 hover:underline
+                <td class="px-6 py-4 text-right btn_flex">
+                    <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline
                     edit_btn
                     
-                    ">Edit</a>
-                        <a href="google.com" class="font-medium text-blue-600 dark:text-blue-500 hover:underline delete_btn">Delete</a>
+                    ">Edit</button>
+                        <button onClick={() =>{this.deleteField(field.fieldName)}}  class="font-medium text-blue-600 dark:text-blue-500 hover:underline delete_btn">Delete</button>
                 </td>
             </tr>
             )}

@@ -26,6 +26,17 @@ export class School extends Component{
         })
     }
 
+    deleteSchool = async (schoolname) =>{
+        try {
+            await fetch(`http://localhost:3000/deleteschool/${schoolname}`,{
+                method: 'DELETE'
+            })
+        } catch (error) {
+            console.log({error, msg:'Unable to delete'})
+        }
+
+    }
+
      componentDidMount(){
         fetch('http://localhost:3000/getschool')
         .then( response => response.json())
@@ -63,13 +74,10 @@ export class School extends Component{
                     </button>
                     <button  onClick={this.toggleSearch}
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  rounded">
-                        Search For Students
+                        Search For School
                     </button>
                 </div>
-              {/* <p>{schools.map(school => 
-                <li key={school.objectID}>
-                <a>{school.hName}</a></li>
-                )}</p> */}
+              
                 <div className="scrol-div ">
                     
                                 <div class=" overflow-x-auto shadow-md sm:rounded-lg ">
@@ -96,12 +104,12 @@ export class School extends Component{
                                                 {school.hDescription}
                                                 </td>
                                                 
-                                                <td class="px-6 py-4 text-right">
-                                                    <a href="google.com" class="font-medium text-blue-600 dark:text-blue-500 hover:underline
+                                                <td class="px-6 py-4 text-right btn_flex">
+                                                    <button  class="font-medium text-blue-600 dark:text-blue-500 hover:underline
                                                     edit_btn
                                                     
-                                                    ">Edit</a>
-                                                     <a href="google.com" class="font-medium text-blue-600 dark:text-blue-500 hover:underline delete_btn">Delete</a>
+                                                    ">Edit</button>
+                                                     <button onClick={()=>{this.deleteSchool(school.hName)}}  class="font-medium text-blue-600 dark:text-blue-500 hover:underline delete_btn">Delete</button>
                                                  </td>
                                             </tr>
                                             )}

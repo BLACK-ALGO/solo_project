@@ -5,6 +5,7 @@
     margin-right: 5%;
     color: wheat;
     font-weight: bold;
+
 }
 
 .delete_btn{
@@ -16,3 +17,15 @@
     font-weight: bold;
     cursor: pointer;
 }
+
+.btn{
+    /* display: none; */
+    cursor: pointer;
+    bottom: 0;
+    position: relative;
+ }
+
+ .btn_flex{
+    display: flex;
+    gap: 20px;
+ }

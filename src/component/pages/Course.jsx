@@ -30,6 +30,16 @@ export class Course extends Component{
         });
     }
 
+    deleteCourse = async (courseCode) =>{
+        try {           
+           await fetch(`http://localhost:3000/deletecourse/${courseCode}`,{
+            method: 'DELETE'
+           })
+        } catch (error) {
+            console.log({error, msg:'Unable to delete'});
+        }
+    }
+
     componentDidMount(){
         fetch('http://localhost:3000/getcourse')
         .then(response => response.json())
@@ -117,11 +127,11 @@ export class Course extends Component{
                                                 </td>
 
                                                 <td class="px-6 py-4 text-right">
-                                                    <a href="google.com" class="font-medium text-blue-600 dark:text-blue-500 hover:underline
+                                                    <button  class="font-medium text-blue-600 dark:text-blue-500 hover:underline
                                                     edit_btn
                                                     
-                                                    ">Edit</a>
-                                                     <a href="google.com" class="font-medium text-blue-600 dark:text-blue-500 hover:underline delete_btn">Delete</a>
+                                                    ">Edit</button>
+                                                     <button onClick={() => {this.deleteCourse(course.courseCode)}} class="font-medium text-blue-600 dark:text-blue-500 hover:underline delete_btn">Delete</button>
                                                  </td>
                                                                                                 
                                             </tr>

@@ -91,7 +91,7 @@ const Home = ({onRouteChange}) =>{
                     </div>
 
                     <div className="top-head">
-                    <img src={require('./photos/profile.jpg')} alt="no profile" className="imgs"/>
+                    <img src={require('./photos/user.png')} alt="no profile" className="imgs"/>
                     </div>
                 </div>
               <div className="">

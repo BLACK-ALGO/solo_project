@@ -25,6 +25,16 @@ export class Lecture extends Component{
             .then((data) => this.setState({lectures: data}))
         }
       }
+    deleteLecture = (lecemail) =>{
+        console.log('this is the lect email '+lecemail);
+        try {
+            fetch(`http://localhost:3000/deletelecturer/${lecemail}`,{
+                method: 'DELETE'
+            })
+        } catch (error) {
+            console.log({error, msg: 'Unable to delete'})
+        }
+    }
 
     toggleSearch = () =>{
         this.setState({
@@ -76,35 +86,8 @@ export class Lecture extends Component{
                 {/* End of botton */}
                 <div className="scrol-div background-img">
                     <h1 className="lec-top">List Of Lectures</h1>
-                    {/* { lectures.map(lecture =>(
-                        <div>
-                        <img src={lecture.LecImage} />
-                        <p>{lecture.lecNumber}</p>
-                        </div>
-                    )
-                        
-                    )} */}
+                    
                     <div>
-                        {/* <table className="table-text">
-                            <thead>
-                                <tr className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">
-                                    <th>ID Number</th>
-                                    <th>Name</th>
-                                    <th>Profile</th>
-                                    <th>Phone Number</th>
-                                    <th>Email</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                    <tr>
-                                        <td>ddvdsvdsfsdf</td>
-                                        <td>ddvdsvdsfsdf</td>
-                                        <td>ddvdsvdsfsdf</td>
-                                        <td>dsdfsfdfdsffdsdgsfdgsg</td>
-                                        <td>d</td>
-                                    </tr>
-                                </tbody>
-                        </table> */}
                         
                         <div className="grid_display">
                             {/* box print */}
@@ -121,7 +104,11 @@ export class Lecture extends Component{
                                     <p>{lecture.lecNumber}</p>
                                     <p>{lecture.lecEmail}</p>
                                 </div>
-                                
+                                <div className="btn">
+                                    <button className="font-medium text-blue-600 dark:text-blue-500 hover:underline edit_btn">Edit</button>
+                                    <button onClick={() =>{this.deleteLecture(lecture.lecEmail)}} className="font-medium text-blue-600 dark:text-blue-500 hover:underline delete_btn">Delete</button>
+                                </div>
+
                             </div>
                             ) 
                         ) }

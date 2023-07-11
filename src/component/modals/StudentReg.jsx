@@ -17,8 +17,10 @@ export class StudentReg extends Component{
       City: '',
       studentNumber : '',
       emergencyNumber: '',
-      postalCode: '',
+      academicYear: '',
       stundentImage:'',
+     Specialities: [],
+     levels: [],
 
 
     }
@@ -95,9 +97,9 @@ export class StudentReg extends Component{
     })
   }
 
-  onpostalCodeChange =(event) =>{
+  onAcademicYearChange =(event) =>{
     this.setState({
-      postalCode : event.target.value
+      academicYear : event.target.value
     })
   }
 
@@ -108,10 +110,10 @@ export class StudentReg extends Component{
   }
 
   onRegister = () =>{
-    console.log(this.state.firstName + " " + this.state.lastName + this.state.birthDate);
+    
 
     fetch('http://localhost:3000/addstudent',{
-      method: 'post',
+      method: 'POST',
       headers: {'Content-Type' : 'application/json'},
       body : JSON.stringify({
         firstName: this.state.firstName,
@@ -126,22 +128,33 @@ export class StudentReg extends Component{
         City: this.state.City,
         studentNumber: this.state.studentNumber,
         emergencyNumber: this.state.emergencyNumber,
-        postalCode: this.state.postalCode,
+        academicYear: this.state.postalCode,
         stundentImage: this.state.stundentImage,
         
       })
     })
   }
 
+  componentDidMount(){
+    fetch('http://localhost:3000/getspacialty')
+    .then(response => response.json())
+    .then((data) => this.setState({Specialities: data}));
+
+    fetch('http://localhost:3000/getlevel')
+        .then(response => response.json())
+        .then((data) => this.setState({levels : data}));
+  }
 
 
 
     render(){
+      const {Specialities, levels} =  this.state;
         return(
             <div>
                 <div className="modal mt-20">
                     <div className="overlay" onClick={this.props.toggleModal}></div> 
                         <div className="modal-content">
+                          
                             <h2 className="student-heading" >Student  Registration</h2>
                             {/* Registration Form For Student */}
                             <div>
@@ -198,9 +211,12 @@ export class StudentReg extends Component{
                                       <label for="level" className="block text-sm font-medium leading-6 text-gray-900">Level</label>
                                       <div className="mt-2">
                                       <select onChange={this.onLevelChange} id="level" name="level" autoComplete="level" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-                                          <option>Level 1</option>
-                                          <option>Level 2</option>
-                                          <option>Level 3</option>
+                                          {
+                                            levels.map(                                         
+                                             level => <option value={level.levelName}>{level.levelName}</option>
+                                            )
+                                          }
+                                          
                                         </select>
                                       </div>
                                     </div>
@@ -209,9 +225,12 @@ export class StudentReg extends Component{
                                       <label for="speciality" className="block text-sm font-medium leading-6 text-gray-900">Speciality</label>
                                       <div className="mt-2">
                                         <select onChange={this.onSpecialityChange} id="speciality" name="speciality" autoComplete="speciality" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-                                          <option>SWE</option>
-                                          <option>LMT</option>
-                                          <option>BTS</option>
+                                          {
+                                            Specialities.map( specialty =>                                             
+                                              <option value={specialty.specialtyCode}>{specialty.specialtyName}</option>
+                                            )
+                                          }
+                                          
                                         </select>
                                       </div>
                                     </div>
@@ -253,9 +272,9 @@ export class StudentReg extends Component{
                                     </div>
 
                                     <div className="sm:col-span-2">
-                                      <label for="postal-code" class="block text-sm font-medium leading-6 text-gray-900">ZIP / Postal code</label>
+                                      <label for="postal-code" class="block text-sm font-medium leading-6 text-gray-900">Academic Year</label>
                                       <div className="mt-2">
-                                        <input onChange={this.onpostalCodeChange} type="text" name="postal-code" id="postal-code" autoComplete="postal-code" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                                        <input onChange={this.onpostalCodeChange} placeholder="2010-2011" type="text" name="academic-year" id="academic-year" autoComplete="postal-code" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
                                       </div>
                                     </div>
 
