@@ -19,6 +19,7 @@ export class StudentReg extends Component{
       emergencyNumber: '',
       academicYear: '',
       stundentImage:'',
+      Gender:'',
      Specialities: [],
      levels: [],
 
@@ -75,13 +76,13 @@ export class StudentReg extends Component{
 
   onCountryChange =(event) =>{
     this.setState({
-      firstName : event.target.value
+      Country : event.target.value
     })
   }
 
   onCityChange =(event) =>{
     this.setState({
-      firstName : event.target.value
+      City : event.target.value
     })
   }
 
@@ -104,14 +105,24 @@ export class StudentReg extends Component{
   }
 
   onstudentImageChange =(event) =>{
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () =>{
+        this.setState({
+          stundentImage: reader.result
+    });
+    };
+    console.log(this.state.lec_img);
+  }
+
+  onGenderChange =(event)=>{
     this.setState({
-      stundentImage : event.target.value
+      Gender: event.target.value
     })
   }
 
   onRegister = () =>{
-    
-
     fetch('http://localhost:3000/addstudent',{
       method: 'POST',
       headers: {'Content-Type' : 'application/json'},
@@ -130,6 +141,7 @@ export class StudentReg extends Component{
         emergencyNumber: this.state.emergencyNumber,
         academicYear: this.state.postalCode,
         stundentImage: this.state.stundentImage,
+        gender: this.state.Gender,
         
       })
     })
@@ -179,10 +191,20 @@ export class StudentReg extends Component{
 
                                     
 
-                                    <div className="col-span-full">
+                                    <div className="sm:col-span-3">
                                       <label for="matricule" className="block text-sm font-medium text-gray-900 left-aligment">Matricule</label>
                                       <div className="mt-2">
                                         <input onChange={this.onMatriculeChange} id="matricule" name="matricule" type="text" autoComplete="matricule" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                                      </div>
+                                    </div>
+
+                                    <div className="sm:col-span-3">
+                                      <label for="matricule" className="block text-sm font-medium text-gray-900 left-aligment">Gender</label>
+                                      <div className="mt-2 p-2">
+                                        <label className="">Female</label>
+                                        <input onChange={this.onGenderChange} id="gender" value="F" name="gender" type="radio" autoComplete="gender" className="radio_margin"/>
+                                        <label className="mar-left">Male</label>
+                                        <input onChange={this.onGenderChange} id="gender" value="M" name="gender" type="radio" autoComplete="gender" className="radio_margin"/>
                                       </div>
                                     </div>
 
@@ -247,7 +269,7 @@ export class StudentReg extends Component{
                                     </div>
 
                                     <div className="sm:col-span-3">
-                                      <label for="city" class="block text-sm font-medium  text-gray-900 left-aligment">City</label>
+                                      <label for="city" class="block text-sm font-medium  text-gray-900 left-aligment">City of Residence</label>
                                       <div className="mt-2">
                                         <select onChange={this.onCityChange} id="city" name="city" autoComplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
                                           <option>United States</option>
@@ -292,6 +314,8 @@ export class StudentReg extends Component{
                                                 <input onChange={this.onstudentImageChange} id="student-image" name="student-image" type="file" className="hidden" />
                                             </label>
                                           </div> 
+                                          <img className="lect_img_prview" src={this.state.stundentImage} alt="" srcset="" />
+
                                       </div>
                                     </div>
 

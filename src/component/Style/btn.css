@@ -29,3 +29,11 @@
     display: flex;
     gap: 20px;
  }
+
+ .mar-left{
+    margin-left: 6%;
+ }
+
+ .radio_margin{
+    margin-left: 5%;
+ }
