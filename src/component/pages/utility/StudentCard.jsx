@@ -1,16 +1,24 @@
-
+import { useState } from 'react';
 
 const StudentCard = ({students}) =>{
+    let i = 1;
+    const [academicYear, setAcademicYear] = useState(null);
+    // setAcademicYear(students[1].specialtyName)
     return(
+        
         <div>
+            
              <div className="t-font-size" >
-                    
-                    
+                                        
                 <div className="s-table">
+                
+                
                     <div className="flex justify-between m-auto">
                         <div className="s-left">
-                            <p>Field : <span>NAme</span></p>
-                            <p>Level : <span>HND1</span></p>
+                            {/* <p>Field : <span>{students[1].specialtyName}</span></p> */}
+                            {/* <p>Level : <span>{students[9].level}</span></p> */}
+                            {/* <h2 className="d-name">{students[9].level}</h2> */}
+
                         </div>
                         <div className="top-table">
                             <img src={require('../../photos/school-logo.png')} alt="no logo" className="s-image"/>
@@ -18,12 +26,14 @@ const StudentCard = ({students}) =>{
 
                         </div>
                         <div className="s-right">
-                            <p className="mb-5">Academic Year <span>2022-2023</span></p>
-                            <h2 className="d-name">Specialty</h2>
+                            <p className="mb-5">Academic Year : {academicYear}</p>
+                            {/* <h2 className="d-name">{students[1].specialtyName}</h2> */}
+
+                            
                         </div>
                     </div>
                 
-                    
+                
 
                 </div>
                 {/* Body  */}
@@ -71,16 +81,23 @@ const StudentCard = ({students}) =>{
                             </tr>
                         </thead>
                         <tbody>
+                        { students.map(
+                    student => 
                             <tr>
-                                <td>0</td>
-                                <td>acha2</td>
-                                <td>jih</td>
+                                <td>{
+                                    
+                                    i++
+                                    }</td>
+                                <td>{student.matricule}</td>
+                                <td>{student.studName}</td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                             </tr>
+                        )
+                        }
                         </tbody>
                     </table>
                     
@@ -157,6 +174,7 @@ const StudentCard = ({students}) =>{
 
                 
                 </div>
+            
         </div>
     )
 }

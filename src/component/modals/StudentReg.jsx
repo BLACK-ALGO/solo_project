@@ -233,6 +233,7 @@ export class StudentReg extends Component{
                                       <label for="level" className="block text-sm font-medium leading-6 text-gray-900">Level</label>
                                       <div className="mt-2">
                                       <select onChange={this.onLevelChange} id="level" name="level" autoComplete="level" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                                      <option>Select Level</option>                                         
                                           {
                                             levels.map(                                         
                                              level => <option value={level.levelName}>{level.levelName}</option>
@@ -247,6 +248,7 @@ export class StudentReg extends Component{
                                       <label for="speciality" className="block text-sm font-medium leading-6 text-gray-900">Speciality</label>
                                       <div className="mt-2">
                                         <select onChange={this.onSpecialityChange} id="speciality" name="speciality" autoComplete="speciality" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                                        <option>Select Speciality</option>                                         
                                           {
                                             Specialities.map( specialty =>                                             
                                               <option value={specialty.specialtyCode}>{specialty.specialtyName}</option>
@@ -296,7 +298,7 @@ export class StudentReg extends Component{
                                     <div className="sm:col-span-2">
                                       <label for="postal-code" class="block text-sm font-medium leading-6 text-gray-900">Academic Year</label>
                                       <div className="mt-2">
-                                        <input onChange={this.onpostalCodeChange} placeholder="2010-2011" type="text" name="academic-year" id="academic-year" autoComplete="postal-code" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                                        <input onChange={this.onAcademicYearChange} placeholder="2010-2011" type="text" name="academic-year" id="academic-year" autoComplete="postal-code" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
                                       </div>
                                     </div>
 
