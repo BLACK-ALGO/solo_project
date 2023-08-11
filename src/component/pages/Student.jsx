@@ -13,10 +13,10 @@ export class Student extends Component{
             modal : false,
             searchModal: false,
             students:[],
-            level: 'sfsd',
-            specialtyName: 'xz',
-            startyear: '2023',
-            endyear: '2024' ,
+            level: 'Level 2',
+            specialtyName: 'SWE',
+            startyear: '2022',
+            endyear: '2023' ,
         };
         this.handlePrint = this.handlePrint.bind(this);
 
@@ -49,14 +49,24 @@ export class Student extends Component{
     }
 
    
-    onSearchChange = (startyear, endyear, level, specility) =>{
-        console.log('parent component'+startyear,endyear , level , specility );
-        // Perform search logic here using the 4 parameters
-        // const results = "no";
-        fetch(`http://localhost:3000/studentlist?startyear=${startyear}&endyear=${endyear}
-        &level=${level}&specialtyName=${specility}`)
+    onSearchChange = (startYear, endYear, Level, specility) =>{
+        console.log('parent component'+startYear,endYear , Level , specility );
+       
+        fetch(`http://localhost:3000/studentlist?startyear=${startYear}&endyear=${endYear}
+        &level=${Level}&specialtyName=${specility}`)
         .then(response => response.json())
-        .then( (data) => this.setState({students: data}))
+        .then( (data) => this.setState({students: data}));
+
+        this.changeState(startYear,endYear, Level,specility);
+
+      }
+
+      changeState = (sYear, eYear, level, Speciality) =>{
+        this.setState({
+            endyear : eYear
+        })
+            console.log('chaging state'+ sYear, eYear,level,Speciality);
+            console.log('changed' + this.state.endyear);
       }
     
     render(){ 
@@ -94,7 +104,7 @@ export class Student extends Component{
                 <div ref={el => (this.componentRef = el)}> 
                     {this.state.students.length}
                     {this.state.students.level}
-                    <StudentCard students={this.state.students} />
+                    <StudentCard Students={this.state.students} search={this.onSearchChange}/>
 
                 </div>
                 {/* end of table */}

@@ -139,7 +139,7 @@ export class StudentReg extends Component{
         City: this.state.City,
         studentNumber: this.state.studentNumber,
         emergencyNumber: this.state.emergencyNumber,
-        academicYear: this.state.postalCode,
+        academicYear: this.state.academicYear,
         stundentImage: this.state.stundentImage,
         gender: this.state.Gender,
         

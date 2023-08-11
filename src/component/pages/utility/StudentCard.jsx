@@ -1,9 +1,12 @@
-import { useState } from 'react';
 
-const StudentCard = ({students}) =>{
+const StudentCard = ({Students}) =>{
     let i = 1;
-    const [academicYear, setAcademicYear] = useState(null);
-    // setAcademicYear(students[1].specialtyName)
+    // const Year = Students.length > 0 ? Students[2].academicYear : '';
+    // let level = Students.length > -1 ? Students[1].level : '';
+    // let Speciality = Students.length > -1 ? Students[0].specialtyName : '';
+    
+
+
     return(
         
         <div>
@@ -15,9 +18,8 @@ const StudentCard = ({students}) =>{
                 
                     <div className="flex justify-between m-auto">
                         <div className="s-left">
-                            {/* <p>Field : <span>{students[1].specialtyName}</span></p> */}
-                            {/* <p>Level : <span>{students[9].level}</span></p> */}
-                            {/* <h2 className="d-name">{students[9].level}</h2> */}
+                            {/* <p>Field :  <span> {Students.specialtyName}</span></p> */}
+                            {/* <p>Level : <span>{level}</span></p> */}
 
                         </div>
                         <div className="top-table">
@@ -26,8 +28,8 @@ const StudentCard = ({students}) =>{
 
                         </div>
                         <div className="s-right">
-                            <p className="mb-5">Academic Year : {academicYear}</p>
-                            {/* <h2 className="d-name">{students[1].specialtyName}</h2> */}
+                            {/* <p className="mb-5">Academic Year : {Year}</p> */}
+                            {/* <h2 className="d-name">{Speciality}</h2> */}
 
                             
                         </div>
@@ -58,11 +60,11 @@ const StudentCard = ({students}) =>{
                                         </div>
                                     </tr>
                                 </th>
-                                <th rowSpan={4} className="d-vertical oriented">Student's Signature</th>
-                                <th rowSpan={4} className="d-vertical oriented">Number of Supplemtry Sheets</th>
-                                <th rowSpan={4} className="d-vertical oriented">Anonymity</th>
-                                <th rowSpan={4} className="d-vertical oriented">MARKS:...........</th>
-                                <th rowSpan={4} className="d-vertical oriented">Observation</th>
+                                <th rowSpan={3} className="d-vertical oriented">Student's Signature</th>
+                                <th rowSpan={3} className="d-vertical oriented">Number of Supplemtry Sheets</th>
+                                <th rowSpan={3} className="d-vertical oriented">Anonymity</th>
+                                <th rowSpan={3} className="d-vertical oriented">MARKS:...........</th>
+                                <th rowSpan={3} className="d-vertical oriented">Observation</th>
                             </tr>
                             <tr>
                                 <th colSpan={3} >
@@ -81,7 +83,7 @@ const StudentCard = ({students}) =>{
                             </tr>
                         </thead>
                         <tbody>
-                        { students.map(
+                        { Students.map(
                     student => 
                             <tr>
                                 <td>{
